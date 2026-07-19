@@ -1,0 +1,24 @@
+Skipping image OS validation for hb__8f94f887deed35ba04ffbd18baaa756c: docker inspect returned 1
+Collecting main service artifacts
+Failed to download artifact '/app/report.json' from service 'main' (best-effort)
+Traceback (most recent call last):
+  File "C:\Users\2k22c\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\artifact_handler.py", line 330, in _download_artifact
+    await source_env.service_download_file(
+    ...<3 lines>...
+    )
+  File "C:\Users\2k22c\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker.py", line 1052, in service_download_file
+    await self.download_file(source_path, target_path)
+  File "C:\Users\2k22c\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker.py", line 1037, in download_file
+    await self._platform.download_file(source_path, target_path)
+  File "C:\Users\2k22c\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker_unix.py", line 185, in download_file
+    await self._env._run_docker_compose_command(
+    ...<2 lines>...
+    )
+  File "C:\Users\2k22c\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker.py", line 656, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment log-report. Command: docker compose --project-name log-report__2fjfjkx__env --project-directory C:\Users\2k22c\Downloads\fix-task-broken\log-report\environment -f C:\Users\2k22c\AppData\Local\Temp\tmppfesvfve\log-report__2FJfjKx__env-docker-compose-resources.json -f C:\Users\2k22c\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker-compose-build.yaml -f C:\Users\2k22c\AppData\Local\Temp\tmpvxv4s4nn\docker-compose-environment.json -f C:\Users\2k22c\AppData\Local\Temp\tmp5cvutyw1\docker-compose-mounts.json cp main:/app/report.json jobs\2026-07-19__11-57-14\log-report__2FJfjKx\artifacts\app\report.json. Return code: 1. Stdout:  log-report__2fjfjkx__env-main-1 Copying log-report__2fjfjkx__env-main-1:/app/report.json to jobs\2026-07-19__11-57-14\log-report__2FJfjKx\artifacts\app\report.json
+Error response from daemon: Could not find the file /app/report.json in container 3ab6fa271027f0920f9f93fcd0ff06d26a69c2d22de1a2e3c4bba6b3abe4fb41
+. Stderr: None. 
+Trial log-report__2FJfjKx failed: No reward file found at jobs\2026-07-19__11-57-14\log-report__2FJfjKx\verifier\reward.txt or jobs\2026-07-19__11-57-14\log-report__2FJfjKx\verifier\reward.json

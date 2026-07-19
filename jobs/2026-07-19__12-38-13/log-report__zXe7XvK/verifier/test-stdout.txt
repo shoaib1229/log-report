@@ -1,0 +1,38 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 4 items
+
+../tests/test_outputs.py ...F                                            [100%]
+
+=================================== FAILURES ===================================
+______________________________ test_report_values ______________________________
+
+    def test_report_values():
+        """Verifies success criterion 5."""
+        data = json.loads(REPORT.read_text())
+    
+        expected = {
+            "total_requests": 6,
+            "unique_ips": 3,
+            "top_path": "/index.html",
+        }
+    
+>       assert data == expected, "report values do not match the expected summary"
+E       AssertionError: report values do not match the expected summary
+E       assert {'top_path': ...nique_ips': 3} == {'top_path': ...nique_ips': 3}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Differing items:
+E         {'total_requests': 5} != {'total_requests': 6}
+E         Use -v to get more diff
+
+/tests/test_outputs.py:37: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_report_exists
+PASSED ../tests/test_outputs.py::test_report_is_valid_json
+PASSED ../tests/test_outputs.py::test_report_fields
+FAILED ../tests/test_outputs.py::test_report_values - AssertionError: report ...
+========================= 1 failed, 3 passed in 0.05s ==========================
